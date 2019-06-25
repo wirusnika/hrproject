@@ -73,10 +73,14 @@
             </ul>
 
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
+
+                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+
+                </form>
+            @endif
             <button style="margin: 0 10px 0 10px; " class="btn btn-outline-light my-2 my-sm-0 chemi-logout-btn">
                 <a class="logout_chemi" href="{{ route('logout') }}"
                    onclick="event.preventDefault();

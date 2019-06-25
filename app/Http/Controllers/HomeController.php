@@ -60,6 +60,7 @@ class HomeController extends Controller
         $allImages = Image::all();
         $userList = User::all();
         $userWithImages = User::with('images')->get();
+        $userWithImagespag = User::with('images')->get();
 
         $usersWithNotification = User::with('notifications')->get();
 
@@ -98,8 +99,7 @@ class HomeController extends Controller
 
         }
 
-
-        return view('profile', compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
+        return view('profile',['userWithImages' => User::with('images')->paginate(8)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
     }
 
     public function settings()

@@ -292,7 +292,9 @@
                                 @endforeach
 
                             </ul>
+
                         </div>
+                        <strong style="">   {{ $userWithImages->links() }} </strong>
                     </div>
                 @endif
 

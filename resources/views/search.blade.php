@@ -1,9 +1,6 @@
 @section ('content')
     @extends ('layouts.header')
 
-
-
-
     @foreach($result  as $one)
         <li>
             <div class="containercz">
