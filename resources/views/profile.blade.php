@@ -17,13 +17,15 @@
 
                     <div class="profile-picture">
 
-
+                        @if($authUserProfileImages != '')
                         @foreach($authUserProfileImages as $one)
+
                             @if($one != null)
                                 <img src="img/profile_imgs/{{ $one }}" alt="">
                             @endif
-                        @endforeach
 
+                        @endforeach
+                        @endif
                         {{--                        {{ Form::open(['method' => 'post', 'route' => ['profile'], 'files' => true ]) }}--}}
                         {{--                            {{ method_field('post') }}--}}
                         {{--                        @csrf--}}

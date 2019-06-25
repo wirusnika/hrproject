@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class HomeController extends Controller
 {
@@ -29,13 +30,17 @@ class HomeController extends Controller
     public function index()
     {
         $userList = User::all();
-        $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
-        $userWithImages = User::with('images')->get();
+        $authUserProfileImages = '';
+        $imagesAll = Image::all();
 
+        if (!$imagesAll->isEmpty()) {
+            $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
+        }
+
+        $userWithImages = User::with('images')->get();
         $usersWithNotification = User::with('notifications');
 
-
-        return view('profile', compact('authUserProfileImages', 'userList','userWithImages','usersWithNotification'));
+        return view('profile', compact('authUserProfileImages', 'userList', 'userWithImages', 'usersWithNotification'));
     }
 
 
@@ -73,14 +78,29 @@ class HomeController extends Controller
                 $forViewAuthUserInsurance_docImagesArray[] = explode(",", $one->insurance_doc);
             }
         }
+        $authUserProfileImages = '';
+        $imagesAll = Image::all();
 
-        $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
-        return view('profile', compact('authUserIdImages', 'userList', 'allImages','userWithImages','forViewAuthUserIdImagesArray','forViewAuthUserContractImagesArray','forViewAuthUserInsurance_docImagesArray','authUserProfileImages','usersWithNotification','notifications','notifiesWithUsers'));
+
+        if (!$imagesAll->isEmpty()) {
+            $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
+
+        }
+
+
+        return view('profile', compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
     }
 
     public function settings()
     {
-        $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
+        $authUserProfileImages = '';
+        $imagesAll = Image::all();
+
+
+        if (!$imagesAll->isEmpty()) {
+            $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
+
+        }
 
         return view('settings', compact('authUserProfileImages'));
     }
@@ -119,10 +139,10 @@ class HomeController extends Controller
             $search = array('"', '[', ']');
             $replaced = str_replace($search, "", $string);
 
-            if (str_contains($replaced, ',')){
+            if (str_contains($replaced, ',')) {
 
                 $result = explode(',', $replaced);
-                foreach ($result as $one){
+                foreach ($result as $one) {
                     $multiImageSave = new Image();
                     $multiImageSave->user_id = Auth::user()->id;
                     $multiImageSave->id_passport = $one;
@@ -165,10 +185,10 @@ class HomeController extends Controller
             $search = array('"', '[', ']');
             $replaced = str_replace($search, "", $string);
 
-            if (str_contains($replaced, ',')){
+            if (str_contains($replaced, ',')) {
 
                 $result = explode(',', $replaced);
-                foreach ($result as $one){
+                foreach ($result as $one) {
                     $multiImageSave = new Image();
                     $multiImageSave->user_id = Auth::user()->id;
                     $multiImageSave->contract = $one;
@@ -207,10 +227,10 @@ class HomeController extends Controller
             $search = array('"', '[', ']');
             $replaced = str_replace($search, "", $string);
 
-            if (str_contains($replaced, ',')){
+            if (str_contains($replaced, ',')) {
 
                 $result = explode(',', $replaced);
-                foreach ($result as $one){
+                foreach ($result as $one) {
                     $multiImageSave = new Image();
                     $multiImageSave->user_id = Auth::user()->id;
                     $multiImageSave->insurance_doc = $one;
@@ -229,14 +249,14 @@ class HomeController extends Controller
         $AuthUsersAllWithImagesAll = User::with('images')->where('id', Auth::user()->id)->get();
 
 
-        return view('drive', compact( 'AuthUsersAllWithImagesAll', 'authUser'));
+        return view('drive', compact('AuthUsersAllWithImagesAll', 'authUser'));
     }
 
 
     public function editDays(Request $request)
     {
 
-        if (request('vocationDays')){
+        if (request('vocationDays')) {
             $newVocationDays = request('vocationDays');
             $id = request('id');
             $findUser = User::find($id);
@@ -296,7 +316,7 @@ class HomeController extends Controller
         $authUserIdImages = image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
         $userList = User::all();
 
-        return view('profile', compact('authUserIdImages', 'imageName', 'userList', 'userImages','userWithImages','authUserProfileImages'));
+        return view('profile', compact('authUserIdImages', 'imageName', 'userList', 'userImages', 'userWithImages', 'authUserProfileImages'));
 
 
     }
@@ -326,7 +346,6 @@ class HomeController extends Controller
             'picture_name' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
-
 
 
         $employee = User::all();
@@ -378,7 +397,8 @@ class HomeController extends Controller
 
     }
 
-    public function return(){
+    public function return()
+    {
 
         return view('return');
     }

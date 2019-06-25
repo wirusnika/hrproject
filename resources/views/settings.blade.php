@@ -13,9 +13,12 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="setting-picture">
+                    @if($authUserProfileImages != '')
+
                     @foreach($authUserProfileImages as $one)
                         <img src="img/profile_imgs/{{ $one }}" alt="">
                     @endforeach
+                    @endif
                     <input type="file" name="picture_name" style="margin-top: 10px;">
 
                 </div>

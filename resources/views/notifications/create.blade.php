@@ -19,14 +19,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Notifications Description</h2>
-                    <textarea rows="5" name="description" class="form-control-message" placeholder=""></textarea>
+                    <textarea rows="5" cols="45" name="description" class="form-control-message" placeholder=""></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-outline-secondary mt-1">Send</button>
         </div>
-
-
-
 
     </form>
 
