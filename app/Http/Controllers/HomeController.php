@@ -42,7 +42,7 @@ class HomeController extends Controller
         $userWithImages = User::with('images')->get();
         $usersWithNotification = User::with('notifications');
 
-        return view('profile', compact('authUserProfileImages', 'userList', 'userWithImages', 'usersWithNotification'));
+        return view('profile', ['userWithImages' => User::with('images')->paginate(8)], compact('authUserProfileImages', 'userList',  'usersWithNotification'));
     }
 
 
@@ -60,15 +60,9 @@ class HomeController extends Controller
         $allImages = Image::all();
         $userList = User::all();
         $userWithImages = User::with('images')->get();
-        $userWithImagespag = User::with('images')->get();
-
         $usersWithNotification = User::with('notifications')->get();
-
         $notifiesWithUsers = Notification::with('users')->get();
-
-
         $notifications = Notification::all();
-
 
         $forViewAuthUserIdImagesArray = [];
         $forViewAuthUserInsurance_docImagesArray = [];
@@ -286,6 +280,20 @@ class HomeController extends Controller
 
             return back();
 
+        }
+
+        if (request('badgeOfMonth')) {
+
+            $users = User::all();
+            foreach ($users as $one){
+                $one->badge = 0;
+                $one->save();
+            }
+            $id = request('badgeOfMonth');
+            $findUser = User::find($id);
+            $findUser->badge = 1;
+            $findUser->save();
+            return back();
         }
 
     }
