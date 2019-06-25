@@ -21,7 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::resource('images', 'ImageController');
 
 Route::resource('tasks', 'TaskController');
@@ -40,3 +39,5 @@ Route::patch('settings','HomeController@settingsStore')->name('settings');
 
 Route::get('drive','HomeController@drive')->name('drive');
 Route::post('drive','HomeController@drive')->name('drive');
+
+Route::get('layouts/header','HomeController@search')->name('search');

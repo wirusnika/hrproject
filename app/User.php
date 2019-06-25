@@ -18,6 +18,19 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $mappingProperties = array(
+        'name' => [
+            'type' => 'text',
+            "analyzer" => "standard",
+        ],
+        'email' => [
+            'type' => 'text',
+            "analyzer" => "standard",
+        ],
+    );
+
+
+
     /**
      * The attributes that should be hidden for arrays.
      *

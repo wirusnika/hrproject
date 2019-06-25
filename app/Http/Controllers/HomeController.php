@@ -29,6 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
         $userList = User::all();
         $authUserProfileImages = '';
         $imagesAll = Image::all();
@@ -43,6 +45,15 @@ class HomeController extends Controller
         return view('profile', compact('authUserProfileImages', 'userList', 'userWithImages', 'usersWithNotification'));
     }
 
+
+    public function search()
+    {
+
+        $search = request('search');
+        $result = User::with('images')->where('name', 'LIKE', '%' . $search . '%')->orWhere('email', 'LIKE', '%' . $search . '%')->get();
+
+            return view('search', compact('result'));
+    }
 
     public function profile(Request $request)
     {
