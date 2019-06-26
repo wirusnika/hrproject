@@ -39,15 +39,7 @@
 
                             @endforeach
                         @endif
-                        {{--                        {{ Form::open(['method' => 'post', 'route' => ['profile'], 'files' => true ]) }}--}}
-                        {{--                            {{ method_field('post') }}--}}
-                        {{--                        @csrf--}}
-                        {{--                        <input type="file" name="picture_name" style="margin-top: 10px;">--}}
 
-                        {{--                        <button type="submit" class="btn btn-outline-secondary mt-3 w-100 font-weight-bold">Submit--}}
-                        {{--                        </button>--}}
-
-                        {{--                        {{ Form::close() }}--}}
 
                     </div>
 
@@ -313,7 +305,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                        </div>
+
 
                         </li>
                         @endforeach
@@ -321,7 +313,7 @@
                         </ul>
 
                     </div>
-                    <strong style="">   {{ $userWithImages->links() }} </strong>
+
             </div>
         @endif
 

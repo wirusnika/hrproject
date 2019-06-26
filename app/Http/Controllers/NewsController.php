@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ImportantNews;
 use App\News;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use function Sodium\compare;
 
 class NewsController extends Controller
 {
@@ -37,10 +40,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->role == 'Manager'){
+        if (Auth::user()->role == 'Manager') {
 
             return view('news.create');
-        } else{
+        } else {
 
             return back();
         }
@@ -49,24 +52,33 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
 
-        if (Auth::user()->role == 'Manager'){
-            $newPost = new News();
-            $newPost->title = request('title');
-            $newPost->description = request('description');
-            $newPost->user_id = Auth::user()->id;
-            $newPost->save();
+        if (Auth::user()->role == 'Manager') {
+
+            $attributes['title'] = request('title');
+            $attributes['description'] = request('description');
+            $attributes['user_id'] = Auth::user()->id;
+            $news = News::create($attributes);
+
+            if (request('emailBroadcast')) {
+                foreach (User::all() as $one) {
+
+                    Mail::to($one->email)->queue(
+                        new ImportantNews($news)
+                    );
+                }
+            }
+
             return redirect()->route('news.index');
+
         } else {
             return back();
         }
-
-
 
 
     }
@@ -74,21 +86,23 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\News  $news
+     * @param \App\News $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show($id)
     {
-        //
+        $thisNews = News::find($id);
+
+        return view('news.show', compact('thisNews'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\News  $news
+     * @param \App\News $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news, $id)
+    public function edit($id)
     {
         $oneNews = News::find($id);
 
@@ -98,15 +112,15 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\News  $news
+     * @param \Illuminate\Http\Request $request
+     * @param \App\News $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news, $id)
+    public function update(Request $request, $id)
     {
         $oneNews = News::find($id);
 
-        $oneNews->name = request('title');
+        $oneNews->title = request('title');
         $oneNews->description = request('description');
         $oneNews->save();
 
@@ -116,10 +130,10 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\News  $news
+     * @param \App\News $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news, $id)
+    public function destroy($id)
     {
         News::find($id)->delete();
 

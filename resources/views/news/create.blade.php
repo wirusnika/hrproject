@@ -19,9 +19,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Description</h2>
-                    <textarea rows="5" cols="45" name="description" class="form-control-message" placeholder=""></textarea>
+                    <textarea rows="5" cols="45" name="description" class="form-control-message" placeholder=""></textarea><br><br>
+                    <input name="emailBroadcast" type="checkbox" class="">
+                    <label class="form-check-label" for="exampleCheck1">Check For Email Broadcast</label>
                 </div>
             </div>
+
+            <br>
             <button type="submit" class="btn btn-outline-secondary mt-1">Create</button>
         </div>
 

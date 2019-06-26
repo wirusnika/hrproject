@@ -41,3 +41,5 @@ Route::get('drive','HomeController@drive')->name('drive');
 Route::post('drive','HomeController@drive')->name('drive');
 
 Route::get('layouts/header','HomeController@search')->name('search');
+
+Route::delete('drive/{id}','ImageController@destroy')->name('imageDestroyer');

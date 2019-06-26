@@ -42,7 +42,7 @@ class HomeController extends Controller
         $userWithImages = User::with('images')->get();
         $usersWithNotification = User::with('notifications');
 
-        return view('profile', ['userWithImages' => User::with('images')->paginate(8)], compact('authUserProfileImages', 'userList',  'usersWithNotification'));
+        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList',  'usersWithNotification'));
     }
 
 
@@ -93,7 +93,7 @@ class HomeController extends Controller
 
         }
 
-        return view('profile',['userWithImages' => User::with('images')->paginate(8)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
+        return view('profile',['userWithImages' => User::with('images')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
     }
 
     public function settings()

@@ -80,7 +80,7 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        image::find($id)->delete();
+        Image::find($id)->delete();
         return back();
     }
 }

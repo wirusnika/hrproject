@@ -17,7 +17,11 @@
                     <hr>
                     @foreach($usersWithNews as $person)
                         @foreach($person->news as $one)
-                            <p class="font-weight-bold mt-5">{{ $one->title }} </p>
+                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                            <a href="{{ route('news.edit', $one->id) }}"><p class="font-weight-bold mt-5">{{ $one->title }} </p></a>
+                            @else
+                               <p class="font-weight-bold mt-5">{{ $one->title }} </p>
+                            @endif
                             <p class="font-weight-bold">{{ $one->created_at }} {{ $person->name }}</p>
                             <p class="mb-3"> {{ $one->description }} </p>
                             <hr class="mt-5">
