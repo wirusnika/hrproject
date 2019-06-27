@@ -39,10 +39,10 @@ class HomeController extends Controller
             $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
         }
 
-        $userWithImages = User::with('images')->get();
+        $userWithImages = User::with('imadrges')->get();
         $usersWithNotification = User::with('notifications');
 
-        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList',  'usersWithNotification'));
+        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList', 'usersWithNotification'));
     }
 
 
@@ -52,7 +52,7 @@ class HomeController extends Controller
         $search = request('search');
         $result = User::with('images')->where('name', 'LIKE', '%' . $search . '%')->orWhere('email', 'LIKE', '%' . $search . '%')->get();
 
-            return view('search', compact('result'));
+        return view('search', compact('result'));
     }
 
     public function profile(Request $request)
@@ -93,7 +93,7 @@ class HomeController extends Controller
 
         }
 
-        return view('profile',['userWithImages' => User::with('images')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
+        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
     }
 
     public function settings()
@@ -110,152 +110,6 @@ class HomeController extends Controller
         return view('settings', compact('authUserProfileImages'));
     }
 
-
-    public function drive(Request $request)
-    {
-        $this->validate($request, [
-
-            'id_passport.*' => 'mimes:jpeg,png,jpg,gif,svg,zip,pdf|max:2048',
-            'contract.*' => 'mimes:jpeg,png,jpg,gif,svg,zip,pdf|max:2048',
-            'insurance_doc.*' => 'mimes:jpeg,png,jpg,gif,svg,zip,pdf|max:2048',
-        ]);
-
-
-        if ($request->hasfile('id_passport')) {
-            $counter = 0;
-            foreach ($request->file('id_passport') as $image) {
-                $imageName = str_slug(Auth::user()->name)
-                    . time()
-                    . $counter
-                    . '.'
-                    . $image->getClientOriginalExtension();
-
-                $image->move(public_path()
-                    . '/img/ids/', $imageName);
-
-                $id_passport_data[] = $imageName;
-                $counter++;
-            }
-
-            $ImageSave = new Image();
-            $ImageSave->user_id = Auth::user()->id;
-
-            $string = json_encode($id_passport_data);
-            $search = array('"', '[', ']');
-            $replaced = str_replace($search, "", $string);
-
-            if (str_contains($replaced, ',')) {
-
-                $result = explode(',', $replaced);
-                foreach ($result as $one) {
-                    $multiImageSave = new Image();
-                    $multiImageSave->user_id = Auth::user()->id;
-                    $multiImageSave->id_passport = $one;
-                    $multiImageSave->save();
-                }
-
-            } else {
-
-                $ImageSave->id_passport = $replaced;
-                $ImageSave->save();
-            }
-
-        }
-
-
-        if ($request->hasfile('contract')) {
-
-            $counter = 0;
-            foreach ($request->file('contract') as $image) {
-                $imageName = str_slug(Auth::user()->name)
-                    . '.'
-                    . 'contract'
-                    . time()
-                    . $counter
-                    . '.'
-                    . $image->getClientOriginalExtension();
-
-                $image->move(public_path()
-                    . '/img/contracts/', $imageName);
-
-                $contract_data[] = $imageName;
-                $counter++;
-
-            }
-
-            $ImageSave = new Image();
-            $ImageSave->user_id = Auth::user()->id;
-
-            $string = json_encode($contract_data);
-            $search = array('"', '[', ']');
-            $replaced = str_replace($search, "", $string);
-
-            if (str_contains($replaced, ',')) {
-
-                $result = explode(',', $replaced);
-                foreach ($result as $one) {
-                    $multiImageSave = new Image();
-                    $multiImageSave->user_id = Auth::user()->id;
-                    $multiImageSave->contract = $one;
-                    $multiImageSave->save();
-                }
-
-            } else {
-
-                $ImageSave->contract = $replaced;
-                $ImageSave->save();
-            }
-        }
-
-
-        if ($request->hasfile('insurance_doc')) {
-            $counter = 0;
-            foreach ($request->file('insurance_doc') as $image) {
-                $imageName = str_slug(Auth::user()->name)
-                    . '.'
-                    . 'insurance_doc'
-                    . time()
-                    . $counter
-                    . '.'
-                    . $image->getClientOriginalExtension();
-
-                $image->move(public_path()
-                    . '/img/insurance/', $imageName);
-
-                $insurance_doc_data[] = $imageName;
-                $counter++;
-            }
-            $ImageSave = new Image();
-            $ImageSave->user_id = Auth::user()->id;
-
-            $string = json_encode($insurance_doc_data);
-            $search = array('"', '[', ']');
-            $replaced = str_replace($search, "", $string);
-
-            if (str_contains($replaced, ',')) {
-
-                $result = explode(',', $replaced);
-                foreach ($result as $one) {
-                    $multiImageSave = new Image();
-                    $multiImageSave->user_id = Auth::user()->id;
-                    $multiImageSave->insurance_doc = $one;
-                    $multiImageSave->save();
-                }
-
-            } else {
-
-                $ImageSave->insurance_doc = $replaced;
-                $ImageSave->save();
-            }
-        }
-
-
-        $authUser = Auth::user();
-        $AuthUsersAllWithImagesAll = User::with('images')->where('id', Auth::user()->id)->get();
-
-
-        return view('drive', compact('AuthUsersAllWithImagesAll', 'authUser'));
-    }
 
 
     public function editDays(Request $request)
@@ -285,7 +139,7 @@ class HomeController extends Controller
         if (request('badgeOfMonth')) {
 
             $users = User::all();
-            foreach ($users as $one){
+            foreach ($users as $one) {
                 $one->badge = 0;
                 $one->save();
             }

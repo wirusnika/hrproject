@@ -315,10 +315,43 @@
                     </div>
 
             </div>
+
         @endif
 
     </div>
     </form>
+        @if(\Illuminate\Support\Facades\Auth::user()->role == 'Employee')
+            <div id="collapseOne" class="collapse show font-weight-bold" aria-labelledby="headingOne"
+                 data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul>
+                        @foreach($userWithImages  as $one)
+                            <li>
+                                <div class="containercz">
+                                    <a class="buttoncz" href="#{{$one->id}}">{{ $one->name }}</a>
+                                    <div class="popup" id="{{$one->id}}">
+                                        <div class="popup-inner">
+                                            <div class="popup__text">
+                                                <p>{{ $one->name }}</p>
+                                                <p>E-mail: {{  $one->email }}</p>
+                                                <p>Telephone: {{  $one->phone }}</p>
+                                        </div>
+                                            <a class="popup__close" href="#">X</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </li>
+                        @endforeach
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            @endif
+
     <div class="row">
         <ul class="days-info mt-5">
             <li>

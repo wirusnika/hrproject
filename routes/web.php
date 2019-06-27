@@ -27,6 +27,8 @@ Route::resource('tasks', 'TaskController');
 
 Route::resource('news', 'NewsController');
 
+Route::resource('drives', 'DriveController');
+
 Route::resource('notifications', 'NotificationController');
 
 Route::get('profile','HomeController@profile')->name('profile');
@@ -37,9 +39,5 @@ Route::post('profile','HomeController@editdays')->name('editDays');
 Route::get('settings','HomeController@settings')->name('settings');
 Route::patch('settings','HomeController@settingsStore')->name('settings');
 
-Route::get('drive','HomeController@drive')->name('drive');
-Route::post('drive','HomeController@drive')->name('drive');
-
 Route::get('layouts/header','HomeController@search')->name('search');
 
-Route::delete('drive/{id}','ImageController@destroy')->name('imageDestroyer');

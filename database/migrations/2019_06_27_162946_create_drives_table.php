@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration
+class CreateDrivesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_images', function (Blueprint $table) {
+        Schema::create('drives', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('picture_name')->nullable();
             $table->string('drive_link')->nullable();
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_images');
+        Schema::dropIfExists('drives');
     }
 }

@@ -44,9 +44,12 @@
                         <a class="nav-link News" href="{{route("news.index")}}">News</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link Drive" href="{{route("drive")}}">Drive</a>
-                    </li>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                        <li class="nav-item">
+                            <a class="nav-link Drive" href="{{route("drives.index")}}">Drive</a>
+                        </li>
+
+                    @endif
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route("settings")}}">Settings</a>
