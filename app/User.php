@@ -68,4 +68,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Notification::class)->orderBy('created_at', 'desc');
     }
+
+    public function drive_links()
+    {
+        return $this->hasOne(Drive::class);
+    }
+
 }

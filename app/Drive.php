@@ -8,7 +8,7 @@ class Drive extends Model
 {
     protected $guarded = [];
 
-    public function drives()
+    public function drive_owner()
     {
         return $this->belongsTo(User::class);
     }

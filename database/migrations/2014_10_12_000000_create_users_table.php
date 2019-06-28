@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('sick_days')->nullable();
             $table->integer('vocation_days')->default(24);
             $table->integer('hour_missed')->default(0);
+            $table->boolean('full_time')->default(1);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
