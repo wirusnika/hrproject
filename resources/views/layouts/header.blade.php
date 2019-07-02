@@ -62,7 +62,9 @@
                     @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                         <li class="nav-item">
                             <a class="nav-link text-white " href="{{route("notifications.index")}}">Messages<span
+
                                     style="color: orange"><sup>
+
                                             {{ \App\Notification::where('status',0)->count() }}
                                     </sup></span></a>
                         </li>
@@ -93,6 +95,7 @@
                           style="display: none;">
                     @csrf
                     </form>
+
                 </button>
                 @endif
             </div>

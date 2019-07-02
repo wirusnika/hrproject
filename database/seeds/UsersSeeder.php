@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
         $user->phone = "596 12 78 93";
         $user->address = "a. machavariani 14";
         $user->vocation_days = 25;
-        $user->password = bcrypt('123123');
+        $user->password = bcrypt('123123123');
         $user->email_verified_at = Carbon::now();
         $user->save();
 

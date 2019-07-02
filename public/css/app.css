@@ -11100,19 +11100,50 @@ a.text-dark:focus {
   }
 }
 
-.inputs {
+.login {
   text-align: -webkit-center;
-  border: 1px solid #d5d5d5;
-  padding-top: 90px;
-  border-radius: 10px;
-  margin-top: 50px;
-  background: white;
-  background-image: url("/img/clouds.png");
-  background-repeat: no-repeat;
+  width: 524px;
+  height: 427px;
+  background: #FFFFFF;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
 
-.inputs a {
+.login a {
   font-family: sans-serif;
+}
+
+.login .login-inputs {
+  max-width: 100%;
+  width: 404px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: rgba(108, 117, 125, 0.7);
+}
+
+.login button {
+  width: 404px;
+  height: 44px;
+  background: #FF8055;
+  border-radius: 8px;
+}
+
+.login .background-login-image {
+  background: url(/img/iceberg-opacity.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 396px;
+  height: 300px;
+  background-position: center;
 }
 
 .form-control {
@@ -11123,6 +11154,10 @@ a.text-dark:focus {
 .input-group {
   width: 33%;
   font-family: Roboto sans-serif;
+  background: #FFFFFF;
+  border: 1px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .profile h1 {
@@ -11158,6 +11193,35 @@ a.text-dark:focus {
   line-height: 19px;
   color: #6C757D;
   font-weight: bold;
+  margin: 9px;
+}
+
+.profile .card-body {
+  position: absolute;
+  width: 288px;
+  background: rgba(222, 238, 249, 0.1);
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.profile .employees a {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6C757D;
+}
+
+.profile .drive-button {
+  width: 100px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #6C757D;
 }
 
 .profile .drive-button {
@@ -11257,6 +11321,7 @@ a.text-dark:focus {
 .profile #cal .header span {
   display: inline-block;
   line-height: 34px;
+  color: #FF8055;
 }
 
 .profile #cal .header .hook {
@@ -11381,7 +11446,7 @@ a.text-dark:focus {
 
 .settings h2 {
   font-size: 33px;
-  margin-top: 10px;
+  margin-top: 60px;
   font-family: monospace;
 }
 
@@ -11393,7 +11458,19 @@ a.text-dark:focus {
 }
 
 .settings .setting-picture .input-group .form-control {
-  font-family: sans-serif;
+  background: #FFFFFF;
+  border: 1px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.settings .setting-input {
+  position: absolute;
+  margin-top: 20px;
+  font-family: Gotham;
+  font-size: 17px;
+  color: #6C757D;
+  border-radius: 6px;
 }
 
 .settings .btn-outline-secondary {
@@ -11403,20 +11480,81 @@ a.text-dark:focus {
 }
 
 .settings .-image img {
-  max-width: 85%;
+  float: right;
+}
+
+.settings .setting-save {
+  width: 168px;
+  height: 36px;
+  background: #FF8055;
+  border-radius: 10px;
+  font-family: Gotham;
+  font-size: 19px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+.settings .setting-logo {
+  margin-top: 15rem;
+}
+
+.settings .setting-logo p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
 }
 
 .news .news-header-image .clouds {
-  width: 100%;
+  background-image: url("/img/clouds.png");
+  background-size: cover;
+  height: 200px;
 }
 
-.news h2 {
-  font-family: monospace;
-  font-size: 50px;
+.news .news-header-image .clouds h2 {
+  font-size: 40px;
+  line-height: 38px;
+  color: #6C757D;
+}
+
+.news .news-header-image .clouds .news-post {
+  cursor: pointer;
+  background: #FF8055;
+  border-radius: 10px;
+  width: 177px;
+  height: 31px;
+  color: white;
+  border: #fff;
 }
 
 .news p {
   font-family: roboto sans-serif;
+}
+
+.news .news-title {
+  display: -webkit-inline-flex;
+  margin-top: 8rem;
+}
+
+.news .news-title h2 {
+  font-size: 40px;
+  line-height: 38px;
+  color: #6C757D;
+}
+
+.news .news-text {
+  border: 1px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+
+.news .news-text p {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 25px;
+  color: #6C757D;
 }
 
 .drive-header-image .clouds {
@@ -11585,18 +11723,18 @@ a.text-dark:focus {
   padding: 137px 0 0 43px;
 }
 
-.popup__text h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  color: #0A0A0A;
+.popup__text h3 {
+  font-family: Gotham;
+  font-size: 35px;
+  line-height: 33px;
+  color: #6C757D;
 }
 
 .popup__text p {
-  font-size: 0.875rem;
-  color: #686868;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 15px;
+  color: #6C757D;
+  font-weight: bold;
 }
 
 .popup:target {
@@ -11631,6 +11769,59 @@ a.text-dark:focus {
 
 .profile-drive-images {
   max-height: 90px;
+}
+
+.calendar-button {
+  cursor: pointer;
+  background: #FF8055;
+  border-radius: 10px;
+  width: 177px;
+  height: 31px;
+  color: white;
+  border: #fff;
+  text-align: center;
+}
+
+.calendar-create-event .event-header .clouds {
+  background-image: url("/img/clouds.png");
+  background-size: cover;
+  height: 200px;
+}
+
+.calendar-create-event .event-header .clouds h2 {
+  font-size: 40px;
+  line-height: 38px;
+  color: #6C757D;
+}
+
+.calendar-create-event h3 {
+  font-weight: bold;
+}
+
+.calendar-create-event input {
+  width: 414px;
+  height: 45px;
+  margin-top: 20px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.calendar-create-event .event-description {
+  width: 414px;
+  height: 135px;
+  margin-top: 20px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.calendar-create-event .-image img {
+  margin-left: -300px;
+  float: right;
+  height: 326.67px;
 }
 
 .fc-icon,
@@ -11956,6 +12147,7 @@ hr.fc-divider {
   border-width: 1px;
   padding: 0;
   vertical-align: top;
+  color: #FF8055;
 }
 
 .fc td.fc-today {
@@ -12357,6 +12549,7 @@ a.fc-more:hover {
 
 .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
   float: right;
+  color: #000000;
 }
 
 .fc-rtl .fc-basic-view .fc-day-top .fc-day-number {

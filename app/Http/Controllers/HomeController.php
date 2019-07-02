@@ -30,7 +30,11 @@ class HomeController extends Controller
     public function index()
     {
 
-
+        if (Auth::user()->drive_links == null){
+            $AuthDrive = '';
+        } else {
+            $AuthDrive = Auth::user()->drive_links->drive_link;
+        }
         $userList = User::all();
         $authUserProfileImages = '';
         $imagesAll = Image::all();
@@ -42,7 +46,7 @@ class HomeController extends Controller
         $userWithImages = User::with('images')->get();
         $usersWithNotification = User::with('notifications');
 
-        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList', 'usersWithNotification'));
+        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList', 'usersWithNotification', 'AuthDrive'));
     }
 
 

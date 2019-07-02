@@ -100,13 +100,13 @@
     </nav>
 </header>
 
-<form action="{{ route('tasks.index') }}" method="get">
+<form class="text-center" action="{{ route('tasks.index') }}" method="get">
     {{ csrf_field() }}
 
 
-    <h3>Calendar</h3>
+    <h3 class="text-center mt-5">Calendar</h3>
     @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
-        <button formaction="{{ route('tasks.create') }}">Create Task</button>
+        <button class="calendar-button" formaction="{{ route('tasks.create') }}">Create Task</button>
     @endif
 
     <div id='calendar'></div>
