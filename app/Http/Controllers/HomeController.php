@@ -39,7 +39,7 @@ class HomeController extends Controller
             $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
         }
 
-        $userWithImages = User::with('imadrges')->get();
+        $userWithImages = User::with('images')->get();
         $usersWithNotification = User::with('notifications');
 
         return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList', 'usersWithNotification'));
