@@ -3,9 +3,9 @@
 
 {{ $news->description }}
 
-@component('mail::button', ['url' => 'localhost:8000/news/' . $news->id ])
-View News
-@endcomponent
+{{--@component('mail::button', ['url' => 'localhost:8000/news/' . $news->id ])--}}
+{{--View News--}}
+{{--@endcomponent--}}
 
 ContractZero Administration<br>
 
