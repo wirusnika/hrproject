@@ -1,5 +1,6 @@
+@extends ('layouts.header')
 @section ('content')
-    @extends ('layouts.header')
+
     <form method="post" action="{{ route('settings') }}" enctype="multipart/form-data">
         {{ method_field('patch') }}
         {{ csrf_field() }}

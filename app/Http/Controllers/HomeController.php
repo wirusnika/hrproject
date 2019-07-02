@@ -57,6 +57,8 @@ class HomeController extends Controller
 
     public function profile(Request $request)
     {
+
+
         $allImages = Image::all();
         $userList = User::all();
         $userWithImages = User::with('images')->get();
@@ -67,6 +69,15 @@ class HomeController extends Controller
         $forViewAuthUserIdImagesArray = [];
         $forViewAuthUserInsurance_docImagesArray = [];
         $forViewAuthUserContractImagesArray = [];
+
+
+
+        if (Auth::user()->drive_links == null){
+            $AuthDrive = '';
+        } else {
+            $AuthDrive = Auth::user()->drive_links->drive_link;
+        }
+
 
         $authUserIdImages = Image::all()->where('user_id', Auth::user()->id);
 
@@ -93,7 +104,7 @@ class HomeController extends Controller
 
         }
 
-        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers'));
+        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers', 'AuthDrive'));
     }
 
     public function settings()
@@ -109,7 +120,6 @@ class HomeController extends Controller
 
         return view('settings', compact('authUserProfileImages'));
     }
-
 
 
     public function editDays(Request $request)

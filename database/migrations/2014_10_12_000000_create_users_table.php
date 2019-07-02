@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->integer('sick_days')->nullable();
-            $table->integer('vocation_days')->default(24);
+            $table->integer('vocation_days')->default(0);
             $table->integer('hour_missed')->default(0);
             $table->boolean('full_time')->default(1);
             $table->string('password');

@@ -3,7 +3,7 @@
 
     <form action="{{ route('news.store') }}" method="post">
         {{ csrf_field() }}
-
+{{--        {{ method_field('post') }}--}}
         <div class="container  mt-5 news-title">
             <div class="row">
                 <div class="col-md-12">
@@ -19,8 +19,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Description</h2>
-                    <textarea rows="5" cols="45" name="description" class="form-control-message" placeholder=""></textarea><br><br>
-                    <input name="emailBroadcast" type="checkbox" class="">
+                    <label>
+                        <textarea rows="5" cols="45" name="description" class="form-control-message" ></textarea>
+                    </label><br><br>
+                    <label>
+                        <input name="emailBroadcast" type="checkbox" class="">
+                    </label>
                     <label class="form-check-label" for="exampleCheck1">Check For Email Broadcast</label>
                 </div>
             </div>

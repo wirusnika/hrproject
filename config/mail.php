@@ -18,6 +18,7 @@ return [
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
+
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Address
@@ -132,5 +133,8 @@ return [
     */
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
+
+
+    'throttleToMessagesPerMin' => env('MAIL_THROTTLE_TO_MESSAGES_PER_MIN', null), //https://mailtrap.io has a rate limit of 2 emails/sec per inbox, but consider being even more conservative.
 
 ];

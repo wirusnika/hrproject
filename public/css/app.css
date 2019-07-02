@@ -11142,12 +11142,86 @@ a.text-dark:focus {
   max-width: 70%;
 }
 
-.profile p {
+.profile .employee-information {
+  font-family: Gotham;
+}
+
+.profile .employee-information a {
+  font-size: 15px;
+  line-height: 14px;
+  color: #6C757D;
+}
+
+.profile .employee-information p {
+  font-family: Gotham;
+  font-size: 20px;
+  line-height: 19px;
+  color: #6C757D;
   font-weight: bold;
 }
 
+.profile .drive-button {
+  width: 100px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #6C757D;
+}
+
+.profile .card-body {
+  position: absolute;
+  width: 288px;
+  background: rgba(222, 238, 249, 0.1);
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.profile .employees a {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6C757D;
+}
+
 .profile .days-info {
-  font-weight: bold;
+  width: 324px;
+  background: rgba(222, 238, 249, 0.1);
+  border: 1px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.profile .days-info ul {
+  font-size: 40px;
+}
+
+.profile .days-info li {
+  display: list-item;
+}
+
+.profile .days-info a {
+  color: #6C757D;
+  font-size: 16px;
+}
+
+.profile .days-info p {
+  color: #6C757D;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.profile .profile-logo p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
 }
 
 .profile #cal {

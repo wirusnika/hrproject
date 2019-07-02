@@ -1,11 +1,9 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 // Variables
 @import 'variables';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 
 .inputs {
     text-align: -webkit-center;
@@ -51,11 +49,77 @@
             max-width: 70%;
         }
     }
-    p {
-        font-weight: bold;
+    .employee-information {
+        font-family: Gotham;
+        a {
+            font-size: 15px;
+            line-height: 14px;
+            color: #6C757D;
+        }
+        p {
+            font-family: Gotham;
+            font-size: 20px;
+            line-height: 19px;
+            color: #6C757D;
+            font-weight: bold;
+        }
+    }
+    .drive-button{
+        width: 100px;
+        background: #F2F8FD;
+        border: 2px solid #FF8055;
+        box-sizing: border-box;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #6C757D;
+    }
+    .card-body {
+        position: absolute;
+        width: 288px;
+        background: rgba(222, 238, 249, 0.1);
+        border: 2px solid #FF8055;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+    .employees a {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: #6C757D;
     }
     .days-info {
-        font-weight: bold;
+        width: 324px;
+        background: rgba(222, 238, 249, 0.1);
+        border: 1px solid #FF8055;
+        box-sizing: border-box;
+        border-radius: 20px;
+        ul {
+            font-size: 40px;
+        }
+        li {
+            display: list-item;
+        }
+        a {
+            color: #6C757D;
+            font-size: 16px;
+        }
+        p {
+            color: #6C757D;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+    }
+    .profile-logo {
+        p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+            color: #000000;
+        }
     }
     #cal {
         -moz-box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
@@ -287,12 +351,10 @@
     margin: 0 auto;
 }
 
-
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext");
 * {
     box-sizing: border-box;
 }
-
 
 @media screen and (max-width: 768px) {
     html, body {
@@ -377,7 +439,6 @@
     max-width: 160px;
     /*max-height: 300px;*/
 
-
 }
 
 .col-md-12-mine {
@@ -449,10 +510,8 @@
 
 .profile-drive-images {
 
-
     max-height: 90px;
 }
-
 
 //calendar starts
 
@@ -617,7 +676,6 @@
     text-shadow: 0 1px 1px rgba(255, 255, 255, .75);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05)
 }
-
 
 .fc-state-default.fc-corner-left {
     border-top-left-radius: 4px;
@@ -1507,7 +1565,7 @@ a.fc-more:hover {
     background-color: #eee
 }
 
-.chemim{
+.chemim {
     font-size: 50px;
 }
 

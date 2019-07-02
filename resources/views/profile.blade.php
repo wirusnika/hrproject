@@ -3,26 +3,34 @@
 
 
 
-    <div class="row text-center mt-2 m-0">
-        <div class="col-md-12">
-            <img src="/img/cz.png" alt="">
+    {{--<div class="row text-center mt-2 m-0">--}}
+    {{--<div class="col-md-12">--}}
 
-            @foreach($userWithImages as $one)
-                @if($one->badge == 1)
-                <p>Employee Of Month</p>
-                {{ $one->name }}
-                    @foreach($one->images as $oneimage)
-                        @if($one->images != null)
-                            <img class="badgeImage" src="img/profile_imgs/{{$oneimage->picture_name}}" alt="">
-                        @endif
-                    @endforeach
-                @endif
-            @endforeach
-        </div>
-    </div>
+
+    {{--@foreach($userWithImages as $one)--}}
+    {{--@if($one->badge == 1)--}}
+    {{--<p>Employee Of Month</p>--}}
+    {{--{{ $one->name }}--}}
+    {{--@foreach($one->images as $oneimage)--}}
+    {{--@if($one->images != null)--}}
+    {{--<img class="badgeImage" src="img/profile_imgs/{{$oneimage->picture_name}}" alt="">--}}
+    {{--@endif--}}
+    {{--@endforeach--}}
+    {{--@endif--}}
+    {{--@endforeach--}}
+    {{--</div>--}}
+    {{--</div>--}}
 
     <div class="container-fluid profile mt-3">
-        <h1>Profile</h1>
+        <div class="row mb-5">
+            <div class="col-md-7">
+                <h1>Profile</h1>
+            </div>
+            <div class="col-md-4 text-center">
+                <h1>Employees</h1>
+            </div>
+        </div>
+
         <form method="post" action="{{ route('profile') }}" enctype="multipart/form-data">
             {{csrf_field('')}}
             <div class="row">
@@ -47,34 +55,38 @@
                 </div>
 
 
-                <div class="col-md-5">
-                    <ul>
+                <div class="col-md-5 employee-information">
+                    <ul style="color: #FF8055">
                         <li>
-                            Name: <p>{{ Auth::user()->name }}</p>
+                            <a href="">Name:</a>
+                            <p>{{ Auth::user()->name }}</p>
                         </li>
                         <li>
-                            Email: <p>{{ Auth::user()->email }}</p>
+                            <a href="">Email:</a>
+                            <p>{{ Auth::user()->email }}</p>
                         </li>
                         <li>
-                            Address: <p>{{ Auth::user()->address }}</p>
+                            <a href="">Address:</a>
+                            <p>{{ Auth::user()->address }}</p>
                         </li>
                         <li>
-                            Phone Number: <p>{{ Auth::user()->phone }}</p>
+                            <a href="">Phone Number:</a>
+                            <p>{{ Auth::user()->phone }}</p>
                         </li>
+                 <button  onclick="window.open('{{ $AuthDrive }}')"  class="drive-button">Drive</button>
                     </ul>
                 </div>
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                     <div id="collapseOne" class="collapse show font-weight-bold" aria-labelledby="headingOne"
                          data-parent="#accordionExample">
                         <div class="card-body">
-
-                            <ul>
+                            <ul style="color: #FF8055">
 
                                 @foreach($userWithImages  as $one)
                                     <li>
-                                        <div class="containercz">
+                                        <div class="container employees">
 
-                                            <a class="buttoncz" href="#{{$one->id}}">{{ $one->name }}</a>
+                                            <a class="button" href="#{{$one->id}}">{{ $one->name }}</a>
                                             <div class="popup" id="{{$one->id}}">
 
                                                 <div class="popup-inner">
@@ -307,19 +319,19 @@
                                         </div>
 
 
-                        </li>
-                        @endforeach
+                                    </li>
+                                @endforeach
 
-                        </ul>
+                            </ul>
+
+                        </div>
 
                     </div>
 
+                @endif
+
             </div>
-
-        @endif
-
-    </div>
-    </form>
+        </form>
         @if(\Illuminate\Support\Facades\Auth::user()->role == 'Employee')
             <div id="collapseOne" class="collapse show font-weight-bold" aria-labelledby="headingOne"
                  data-parent="#accordionExample">
@@ -335,10 +347,10 @@
                                                 <p>{{ $one->name }}</p>
                                                 <p>E-mail: {{  $one->email }}</p>
                                                 <p>Telephone: {{  $one->phone }}</p>
-                                        </div>
+                                            </div>
                                             <a class="popup__close" href="#">X</a>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             </li>
                         @endforeach
@@ -350,43 +362,52 @@
             </div>
 
 
-            @endif
+        @endif
 
-    <div class="row">
-        <ul class="days-info mt-5">
-            <li>
-                <p>Sick Days : {{ Auth::user()->sick_days }}</p>
-            </li>
-            <li>
-                <p>Vocation Day left: {{ Auth::user()->vocation_days }}</p>
-            </li>
+        <div class="row days-info mt-5">
+            <ul style="color: #FF8055">
+                <li>
 
-            <li>
-                <p>Being Late : {{ Auth::user()->hour_missed }} hours</p>
-            </li>
-        </ul>
+                    {{--<a href="" style="color: #6C757D"></a>--}}
+                    <p> Sick Days:  {{ Auth::user()->sick_days }}</p>
+                </li>
+                <li>
 
-    </div>
+                    {{--<a href=""></a>--}}
+                    <p> Vocation Day left:  {{ Auth::user()->vocation_days }}</p>
+                </li>
 
-
-    <div id='app'></div>
-
-    @if( \Illuminate\Support\Facades\Auth::user()->role == 'Employee')
-        <div class="col-md-12 mt-2">
-
-
-            {{Form::open(['method' => 'get', 'route' => ['notifications.create'] ])}}
-            @csrf
-            <h2 class="mt-4 chemim">Send Notification to Manager</h2>
-            <button formaction="{{ route('notifications.create') }}">Create Notification</button>
-
-            {{  Form::close()   }}
+                <li>
+                    {{--<a href="">:</a>--}}
+                    <p>Being Late:  {{ Auth::user()->hour_missed }} hours</p>
+                </li>
+            </ul>
 
         </div>
+        <div class="row mt-5 profile-logo">
+            <div class="col-md-3 text-center">
+                <p>Powered By</p>
+                <img src="/img/cz.png" alt="">
+            </div>
+        </div>
+        <div id='app'></div>
+
+        @if( \Illuminate\Support\Facades\Auth::user()->role == 'Employee')
+            <div class="col-md-12 mt-2">
+
+
+                {{Form::open(['method' => 'get', 'route' => ['notifications.create'] ])}}
+                @csrf
+                <h2 class="mt-4 chemim">Send Notification to Manager</h2>
+                <button formaction="{{ route('notifications.create') }}">Create Notification</button>
+
+                {{  Form::close()   }}
+
+            </div>
         @endif
 
 
-        </div>
+    </div>
 
 
 @endsection

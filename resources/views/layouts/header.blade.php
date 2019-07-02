@@ -5,7 +5,7 @@
 
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
     <title>{{ ('CZ HR') }}</title>
 
@@ -26,7 +26,7 @@
 </head>
 @if(Auth::check())
     <header class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,31 +37,31 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link Profile" href="{{route("profile")}}">Profile</a>
+                        <a class="nav-link text-white Profile" href="{{route("profile")}}">Profile</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link News" href="{{route("news.index")}}">News</a>
+                        <a class="nav-link text-white News" href="{{route("news.index")}}">News</a>
                     </li>
 
                     @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                         <li class="nav-item">
-                            <a class="nav-link Drive" href="{{route("drives.index")}}">Drive</a>
+                            <a class="nav-link text-white Drive" href="{{route("drives.index")}}">Drive</a>
                         </li>
 
                     @endif
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route("settings")}}">Settings</a>
+                        <a class="nav-link text-white " href="{{route("settings")}}">Settings</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route("tasks.index")}}">Calendar</a>
+                        <a class="nav-link text-white " href="{{route("tasks.index")}}">Calendar</a>
                     </li>
 
                     @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("notifications.index")}}">Messages<span
+                            <a class="nav-link text-white " href="{{route("notifications.index")}}">Messages<span
                                     style="color: orange"><sup>
                                             {{ \App\Notification::where('status',0)->count() }}
                                     </sup></span></a>
@@ -72,14 +72,17 @@
                 </ul>
 
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
-                <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
+                    <form class="form-inline my-2 my-lg-0"  method="get" action="{{route('search')}}">
 
-                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                               aria-label="Search">
+                        <button class="btn text-white my-2 my-sm-0" style="background-color: #FF8055" type="submit">
+                            Search
+                        </button>
 
-                </form>
+                    </form>
                 @endif
-                <button style="margin: 0 10px 0 10px; " class="btn btn-outline-light my-2 my-sm-0 chemi-logout-btn">
+                <button style="background-color: #FF8055" class="btn text-white my-2 m-2 my-sm-0 chemi-logout-btn">
                     <a class="logout_chemi" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -89,9 +92,8 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                           style="display: none;">
                     @csrf
-
+                    </form>
                 </button>
-                </form>
                 @endif
             </div>
         </nav>

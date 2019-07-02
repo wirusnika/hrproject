@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\MonthlyVocationDaysUpdate::class,
     ];
 
     /**
@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('MonthlyVocationDaysUpdate:Update')->monthlyOn(1,'1:00');
         // $schedule->command('inspire')
         //          ->hourly();
     }
