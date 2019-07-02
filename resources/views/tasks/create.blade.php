@@ -15,19 +15,22 @@
             <div class="row mt-5">
                 <div class="col-md-12">
                     <h3>Event Name</h3>
-                    <input type="text" placeholder="">
+                    <input name="name" type="text" placeholder="Event name" required>
                 </div>
                 <div class="col-md-12 mt-5">
                     <h3>Event Description</h3>
-                    <input class="event-description" type="text" placeholder="">
+                    <textarea name="description" class="event-description" type="text" placeholder="Event Description" required></textarea>
                 </div>
                 <div class="col-md-12 mt-5">
                     <h3>Start Date</h3>
                     <div class="-image">
-                        <img src="/img/iceberg (11).png" alt="">
+                        <img src="/img/iceberg.png" alt="">
                     </div>
-                    <input type="date" name="task_date" placeholder="">
+                    <input type="date" name="task_date" placeholder="" required><hr>
+                    <button class="calendar-button" type="submit">Create</button>
                 </div>
+
+
             </div>
             <div class="row">
                 <div class="col-md-3 text-center setting-logo">
