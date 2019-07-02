@@ -149,15 +149,16 @@
                     </div>
                 @endif
 
-            </div>
 
 
-        </form>
+
+
         @if(\Illuminate\Support\Facades\Auth::user()->role == 'Employee')
+            <div class="row mt-5">
             <div id="collapseOne" class="collapse show font-weight-bold" aria-labelledby="headingOne"
                  data-parent="#accordionExample">
                 <div class="card-body">
-                    <ul>
+                    <ul style="color: #FF8055">
                         @foreach($userWithImages  as $one)
                             <li>
                                 <div class="containercz">
@@ -184,9 +185,10 @@
 
             </div>
 
-
+            </div>
         @endif
-
+            </div>
+        </form>
         <div class="row days-info mt-5">
             <ul style="color: #FF8055">
                 <li>
