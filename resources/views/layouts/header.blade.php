@@ -76,7 +76,7 @@
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                     <form class="form-inline my-2 my-lg-0"  method="get" action="{{route('search')}}">
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                        <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
                                aria-label="Search">
                         <button class="btn text-white my-2 my-sm-0" style="background-color: #FF8055" type="submit">
                             Search
