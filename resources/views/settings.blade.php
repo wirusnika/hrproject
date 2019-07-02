@@ -20,9 +20,9 @@
                                 <img src="img/profile_imgs/{{ $one }}" alt="">
                             @endforeach
                         @endif
-                        <input type="file" class="setting-input" name="picture_name">
 
                     </div>
+                    <input type="file" class="setting-input" name="picture_name">
                 </div>
                 <div class="col-md-9 s-try">
                     <div class="input-group mb-3">
