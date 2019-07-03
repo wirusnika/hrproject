@@ -139,13 +139,8 @@
                                     </li>
 
                                 @endforeach
-
                             </ul>
-
-
                         </div>
-
-
                     </div>
                 @endif
 
