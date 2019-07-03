@@ -17,11 +17,6 @@
                                    value="{{ old('email') }}"
                                    aria-label="Email Address"
                                    aria-describedby="basic-addon1">
-                            {{--                    <input id="email" type="email"--}}
-                            {{--                    class=" font-weight-bold"--}}
-                            {{--                    placeholder="Email Address"--}}
-{{--                                                aria-label="Email Address"--}}
-{{--                                                aria-describedby="basic-addon1" name="email" >--}}
                         </div>
                         <div class="input-groups mb-3">
                             <input class=" {{ $errors->has('password') ? ' is-invalid' : '' }} login-inputs mt-3"
@@ -36,20 +31,6 @@
                     <strong>{{ $errors->first('password') }}</strong>
                     </span>
                             @endif
-                            {{--                    <input id="password" type="password" name="password"--}}
-                            {{--                    class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} font-weight-bold"--}}
-                            {{--                    placeholder="Password"--}}
-{{--                                                aria-label="Password"--}}
-{{--                                                aria-describedby="basic-addon1">--}}
-                            {{--                    @if ($errors->has('password'))--}}
-                            {{--                    <span class="invalid-feedback" role="alert">--}}
-                            {{--                    <strong>{{ $errors->first('password') }}</strong>--}}
-                            {{--                    </span>--}}
-                            {{--                    @endif--}}
-                            {{--</div>--}}
-
-
-                            {{--<div class="flex-center position-ref full-height">--}}
                             @if (Route::has('login'))
                                 <div class="top-right links">
                                     @auth
@@ -60,10 +41,6 @@
                                     @endauth
                                 </div>
                             @endif
-                            {{--</div>--}}
-                            {{--</div>--}}
-
-
                             <button class="btn btn-outline-secondary mt-5 font-weight-bold"
                                     href="{{ route('login') }}">Login
                             </button>
@@ -79,25 +56,11 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
-
-
-        {{--<button class="btn btn-outline-secondary mt-5 font-weight-bold ml-3"--}}
-        {{--href="{{ route('login') }}">Login--}}
-        {{--</button>--}}
-
-        {{--@if (Route::has('register'))--}}
-        {{--<a class="btn btn-outline-secondary mt-5 font-weight-bold ml-3"--}}
-        {{--href="{{ route('register') }}">Register</a>--}}
-        {{--@endif--}}
-
-
-        <div class="row mt-2  m-0">
-            <div class="col-md-12">
-                <p>Powered By</p>
+        <div class="row mt-5  m-0">
+            <div class="col-md-3 text-center">
+                <p class="login-paragraph font-weight-bold">Powered By</p>
                 <img src="/img/cz.png" alt="">
             </div>
         </div>
