@@ -19,16 +19,15 @@
                         @foreach($person->news as $one)
                     <div class="row mt-5">
                         <div class="col-md-5 news-title">
-
                                     @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                                         <a href="{{ route('news.edit', $one->id) }}"><h2
-                                                class="font-weight-bold mt-5">{{ $one->title }} </h2></a>
+                                                class="font-weight-bold mt-3">{{ $one->title }} </h2></a>
                                     @else
-                                        <h2 class="font-weight-bold mt-5">{{ $one->title }} </h2>
+                                        <h2 class="font-weight-bold mt-3">{{ $one->title }} </h2>
                                     @endif
-                                    <p style="color: #FF8055;" class="ml-3 font-weight-bold mt-3">By {{ $person->name }} </p>
-                                    <p style="color: #6C757D;" class="ml-3 mt-3">{{ $one->created_at }}</p>
-                                    <hr class="mt-5">
+                                    <p style="color: #FF8055;" class="ml-2 font-weight-bold mt-4">By {{ $person->name }} </p>
+                                    <p style="color: #6C757D;" class="ml-3 mt-4">{{ $one->created_at }}</p>
+                                    {{--<hr class="mt-5">--}}
 
                         </div>
                     </div>
