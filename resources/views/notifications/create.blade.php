@@ -4,26 +4,45 @@
     <form action="{{ route('notifications.store') }}" method="post">
         {{ csrf_field() }}
 
-        <div class="container  mt-5 news-title">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Notification Title</h2>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control font-weight-bold" placeholder=""
-                               name="title"
-                               aria-label="Username"
-                               aria-describedby="basic-addon1">
+        <div class="container employees-notification text-center">
+            <div class="event-header">
+                <div class="clouds">
+                    <h2 class="text-center mt-4 font-weight-bold">Create Notification</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="container  mt-5 news-title">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <h3>Notification Title</h3>
+                            <input type="text" name="title" placeholder="">
+                        </div>
+                        <div class="col-md-12 mt-5">
+                            <h3>Notifications Description</h3>
+                            <textarea class="event-description" name="description" type="text"
+                                      placeholder=""></textarea>
+                        </div>
+
+                    </div>
+                    <hr style="border-color: #f8fafc">
+                    <button class="create" formaction="{{ route('news.create') }}">Create
+                    </button>
+                    <div class="row">
+                        <div class="col-md-3 text-center notification-logo">
+                            <p>Powered By</p>
+                            <img src="/img/cz.png" alt="">
+                        </div>
+                        <div class="col-md-9 mt-5">
+                            <div class="-image">
+                                <img src="/img/iceberg.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Notifications Description</h2>
-                    <textarea rows="5" cols="45" name="description" class="form-control-message" placeholder=""></textarea>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-outline-secondary mt-1">Send</button>
         </div>
+
 
     </form>
 

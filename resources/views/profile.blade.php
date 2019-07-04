@@ -43,22 +43,20 @@
                             <a href="">Name:</a>
                             <p>{{ Auth::user()->name }}</p>
                         </li>
-                        <li class="mt-4">
+                        <li class="mt-2">
                             <a href="">Email:</a>
                             <p>{{ Auth::user()->email }}</p>
                         </li>
-                        <li class="mt-4">
+                        <li class="mt-2">
                             <a href="">Address:</a>
                             <p>{{ Auth::user()->address }}</p>
                         </li>
-                        <li class="mt-4">
+                        <li class="mt-2">
                             <a href="">Phone Number:</a>
                             <p>{{ Auth::user()->phone }}</p>
                         </li>
-                        <button onclick="window.open('{{ $AuthDrive }}')" class="drive-button mt-4">Drive</button>
-
+                        <button onclick="window.open('{{ $AuthDrive }}')" class="drive-button mt-2">Drive</button>
                     </ul>
-
                 </div>
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                     <div id="collapseOne" class="collapse show font-weight-bold" aria-labelledby="headingOne"
@@ -139,12 +137,15 @@
                                     </li>
 
                                 @endforeach
+
                             </ul>
+
+
                         </div>
                     </div>
                 @endif
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'Employee')
-                    <div class="row mt-5">
+                    <div class="row">
                         <div id="collapseOne" class="collapse show font-weight-bold" aria-labelledby="headingOne"
                              data-parent="#accordionExample">
                             <div class="card-body">
@@ -177,9 +178,10 @@
 
                     </div>
                 @endif
+
             </div>
         </form>
-        <div class="row days-info mt-5">
+        <div class="row days-info mt-3">
             <ul style="color: #FF8055">
                 <li>
                     {{--<a href="" style="color: #6C757D"></a>--}}
@@ -197,6 +199,19 @@
             </ul>
 
         </div>
+        @if( \Illuminate\Support\Facades\Auth::user()->role == 'Employee')
+            <div class="col-md-12 text-center employee-notifications mt-2">
+
+
+                {{Form::open(['method' => 'get', 'route' => ['notifications.create'] ])}}
+                @csrf
+                <h2 class="mt-4 send-notification">Send Notification to Manager</h2>
+                <button class="create-notification" formaction="{{ route('notifications.create') }}">Create Notification</button>
+
+                {{  Form::close()   }}
+
+            </div>
+        @endif
         <div class="row mt-5 profile-logo">
             <div class="col-md-3 text-center">
                 <p>Powered By</p>
@@ -204,22 +219,6 @@
             </div>
         </div>
         <div id='app'></div>
-
-        @if( \Illuminate\Support\Facades\Auth::user()->role == 'Employee')
-            <div class="col-md-12 mt-2">
-
-
-                {{Form::open(['method' => 'get', 'route' => ['notifications.create'] ])}}
-                @csrf
-                <h2 class="mt-4 send-notification">Send Notification to Manager</h2>
-                <button formaction="{{ route('notifications.create') }}">Create Notification</button>
-
-                {{  Form::close()   }}
-
-            </div>
-        @endif
-
-
     </div>
 
 
