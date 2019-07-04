@@ -11175,6 +11175,73 @@ a.text-dark:focus {
   border-radius: 10px;
 }
 
+.employees-notification .event-header .clouds {
+  background-image: url("/img/clouds.png");
+  background-size: cover;
+  height: 200px;
+}
+
+.employees-notification .event-header .clouds h2 {
+  font-size: 40px;
+  line-height: 38px;
+  color: #6C757D;
+}
+
+.employees-notification h3 {
+  font-weight: bold;
+}
+
+.employees-notification input {
+  width: 414px;
+  height: 45px;
+  margin-top: 20px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.employees-notification .event-description {
+  width: 414px;
+  height: 135px;
+  margin-top: 20px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.employees-notification .-image img {
+  margin-left: -300px;
+  float: right;
+  height: 326.67px;
+}
+
+.employees-notification .create {
+  width: 413px;
+  height: 46px;
+  background: #FF8055;
+  border-radius: 10px;
+  color: #fff;
+  border: #FF8055;
+  font-size: 20px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.employees-notification .notification-logo {
+  margin-top: 14rem;
+}
+
+.employees-notification .notification-logo p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+}
+
 .profile h1 {
   font-size: 33px;
   margin-top: 10px;
@@ -11198,7 +11265,7 @@ a.text-dark:focus {
 
 .profile .employee-information a {
   font-size: 15px;
-  line-height: 14px;
+  line-height: 32px;
   color: #6C757D;
 }
 
@@ -11206,9 +11273,7 @@ a.text-dark:focus {
   font-family: Gotham;
   font-size: 20px;
   line-height: 19px;
-  color: #6C757D;
-  font-weight: bold;
-  margin: 9px;
+  color: #000;
 }
 
 .profile .drive-button {
@@ -11222,7 +11287,6 @@ a.text-dark:focus {
 }
 
 .profile .card-body {
-  position: absolute;
   width: 288px;
   background: rgba(222, 238, 249, 0.1);
   border: 2px solid #FF8055;
@@ -11234,7 +11298,7 @@ a.text-dark:focus {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 30px;
   color: #6C757D;
 }
 
@@ -11263,6 +11327,15 @@ a.text-dark:focus {
   color: #6C757D;
   font-size: 16px;
   margin-left: 5px;
+}
+
+.profile .create-notification {
+  width: 183px;
+  height: 37px;
+  color: white;
+  border: #FF8055;
+  background: #FF8055;
+  border-radius: 10px;
 }
 
 .profile .profile-logo p {
@@ -11603,6 +11676,133 @@ a.text-dark:focus {
   color: #6C757D;
 }
 
+.news-create-post .event-header .clouds {
+  background-image: url("/img/clouds.png");
+  background-size: cover;
+  height: 200px;
+}
+
+.news-create-post .event-header .clouds h2 {
+  font-size: 40px;
+  line-height: 38px;
+  color: #6C757D;
+}
+
+.news-create-post h3 {
+  font-weight: bold;
+}
+
+.news-create-post input {
+  width: 414px;
+  height: 45px;
+  margin-top: 20px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.news-create-post .event-description {
+  width: 414px;
+  height: 135px;
+  margin-top: 20px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.news-create-post .-image img {
+  margin-left: -300px;
+  float: right;
+  height: 326.67px;
+}
+
+.news-create-post .create {
+  width: 413px;
+  height: 46px;
+  background: #FF8055;
+  border-radius: 10px;
+  color: #fff;
+  border: #FF8055;
+  font-size: 20px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.check-for-mail {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+
+.check-for-mail input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+
+.check-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #FF8055;
+}
+
+/* On mouse-over, add a grey background color */
+
+.check-for-mail:hover input ~ .check-mark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.check-for-mail input:checked ~ .check-mark {
+  background-color: #FF8055;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.check-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.check-for-mail input:checked ~ .check-mark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.check-for-mail .check-mark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .drive-header-image .clouds {
   width: 35%;
   margin-left: 35%;
@@ -11668,15 +11868,11 @@ a.text-dark:focus {
 }
 
 .buttoncz {
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  display: inline-block;
-  border-radius: 1.5rem;
-  background-color: transparent;
-  color: #9191E9;
-  padding: 0.2rem 0.2rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #6C757D;
 }
 
 .popup {
