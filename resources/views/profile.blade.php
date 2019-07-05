@@ -84,18 +84,14 @@
                                                                         placeholder="{{ $one->sick_days }}"
                                                                         type="number"
                                                                         name="sickDays"
-                                                                        step="1" min="0" max="100" required>
-                                                                <button name="id" value="{{$one->id}}" type="submit">
-                                                                    Edit
-                                                                </button>
+                                                                        step="1" min="0" max="100">
+
 
                                                             </p>
 
                                                         </div>
 
-                                                        {{ Form::close() }}
 
-                                                        {{ Form::open(['method' => 'post', 'route' => ['editDays'] ]) }}
 
                                                         <div>
                                                             <p>Vocation Days Left:
@@ -103,12 +99,16 @@
                                                                         placeholder="{{ $one->vocation_days }}"
                                                                         type="number"
                                                                         name="vocationDays"
-                                                                        step="1" min="0" max="55" required>
-                                                                <button name="id" value="{{$one->id}}" type="submit">
-                                                                    Edit
-                                                                </button>
+                                                                        step="1" min="0" max="55" >
+
 
                                                             </p>
+                                                            <div>
+
+                                                                <button name="id" value="{{$one->id}}" type="submit">
+                                                                    Save
+                                                                </button>
+                                                            </div>
 
                                                         </div>
 

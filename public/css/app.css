@@ -11153,7 +11153,7 @@ a.text-dark:focus {
 }
 
 .login .background-login-image {
-  background: url(/public/img/iceberg-opacity.jpg);
+  background: url("/img/iceberg-opacity.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 396px;
@@ -11167,7 +11167,7 @@ a.text-dark:focus {
 }
 
 .input-group {
-  width: 33%;
+  width: 80%;
   font-family: Roboto sans-serif;
   background: #FFFFFF;
   border: 1px solid #FF8055;
@@ -11584,12 +11584,12 @@ a.text-dark:focus {
 }
 
 .settings .setting-input {
-  position: absolute;
   margin-top: 20px;
   font-family: Gotham;
   font-size: 17px;
   color: #6C757D;
   border-radius: 6px;
+  margin-bottom: 20px;
 }
 
 .settings .btn-outline-secondary {
@@ -11674,6 +11674,11 @@ a.text-dark:focus {
   font-size: 16px;
   line-height: 25px;
   color: #6C757D;
+}
+
+.news .hr-space {
+  margin-top: 9rem;
+  border: 1px solid rgba(108, 117, 125, 0.5);
 }
 
 .news-create-post .event-header .clouds {

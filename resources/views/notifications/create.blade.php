@@ -26,7 +26,7 @@
 
                     </div>
                     <hr style="border-color: #f8fafc">
-                    <button class="create" formaction="{{ route('news.create') }}">Create
+                    <button class="create" type="submit">Create
                     </button>
                     <div class="row">
                         <div class="col-md-3 text-center notification-logo">

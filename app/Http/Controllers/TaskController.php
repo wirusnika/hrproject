@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use App\User;
+use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,10 +39,10 @@ class TaskController extends Controller
     public function create()
     {
 
-        if (Auth::user()->role == 'Manager'){
+        if (Auth::user()->role == 'Manager') {
 
             return view('tasks.create');
-        } else{
+        } else {
 
             return back();
         }
@@ -50,7 +51,7 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -62,7 +63,7 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -76,7 +77,7 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,18 +90,26 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $task = Task::find($id);
 
-        $task->name = request('name');
-        $task->description = request('description');
-        $task->task_date = request('task_date');
-        $task->save();
+        if (request('delete') == 'godelete'){
+
+            Task::find($id)->delete();
+
+            return redirect('tasks');
+        } else {
+            $task = Task::find($id);
+            $task->name = request('name');
+            $task->description = request('description');
+            $task->task_date = request('task_date');
+            $task->save();
+
+        }
 
         return redirect('tasks');
     }
@@ -108,11 +117,16 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
+
+
+        if (request('editButton')){
+            redirect(route('tasks.update'));
+        }
         Task::find($id)->delete();
 
         return redirect('tasks');
