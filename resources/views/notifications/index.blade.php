@@ -3,20 +3,26 @@
 
     @csrf
 
+    <div class="container-fluid notification-message">
+        <div class="col-md-12 mt-2">
 
-<div class="col-md-12 mt-2">
 
-    <hr>
-    @foreach($usersWithNotification as $person)
-        @foreach($person->notifications as $notification)
-            <hr>
-            <p> Author: {{ $person->name}} -- Created: {{ $notification->created_at }}</p>
-            <h3> {{ $notification->title }} </h3>
-            <h4>Description </h4>
-            <p>{{ $notification->description }}</p>
-            <hr>
-        @endforeach
-    @endforeach
-</div>
-
+            @foreach($usersWithNotification as $person)
+                @foreach($person->notifications as $oneNotification)
+                        <div class="row">
+                            <div class="col-md-12 mt-5">
+                                <p> Author: {{ $person->name}} -- Created: {{ $oneNotification->created_at }}</p>
+                            </div>
+                        </div>
+                        <div class="row messages">
+                            <div class="col-md-12">
+                                <h3 class="mt-3"> {{ $oneNotification->title }} </h3>
+                                <hr>
+                                <p>{{ $oneNotification->description }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        @endforeach
+        </div>
+    </div>
 @endsection ('content')

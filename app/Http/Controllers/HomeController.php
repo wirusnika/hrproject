@@ -30,11 +30,17 @@ class HomeController extends Controller
     public function index()
     {
 
-        if (Auth::user()->drive_links == null){
+        $AuthDriveLink = Auth::user()->drive_links;
+        if (Auth::user()->drive_links == null) {
             $AuthDrive = '';
         } else {
-            $AuthDrive = Auth::user()->drive_links->drive_link;
+            foreach ($AuthDriveLink as $link) {
+
+                $AuthDrive = $link->drive_link;
+            }
         }
+
+
         $userList = User::all();
         $authUserProfileImages = '';
         $imagesAll = Image::all();
@@ -43,10 +49,10 @@ class HomeController extends Controller
             $authUserProfileImages = Image::all()->last()->where('user_id', Auth::user()->id)->pluck('picture_name');
         }
 
-        $userWithImages = User::with('images')->get();
+        $userWithImages = User::with('images', 'drive_links')->get();
         $usersWithNotification = User::with('notifications');
 
-        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserProfileImages', 'userList', 'usersWithNotification', 'AuthDrive'));
+        return view('profile', ['userWithImages' => User::with('images', 'drive_links')->paginate(15)], compact('authUserProfileImages', 'userList', 'usersWithNotification', 'AuthDrive'));
     }
 
 
@@ -63,9 +69,34 @@ class HomeController extends Controller
     {
 
 
+
+
+        $badge = request('badgeOfMonth');
+
+
+        if ($badge != null) {
+
+            $users = User::all();
+            foreach ($users as $one) {
+                $one->badge = 0;
+                $one->save();
+            }
+
+            $id = request('badgeOfMonth');
+            $findUser = User::find($id);
+            $findUser->badge = 1;
+            $findUser->save();
+
+            return back();
+        }
+
         $allImages = Image::all();
         $userList = User::all();
-        $userWithImages = User::with('images')->get();
+        $userWithImages = User::with('images', 'drive_links')->get();
+
+
+//        dd($userWithImages);
+
         $usersWithNotification = User::with('notifications')->get();
         $notifiesWithUsers = Notification::with('users')->get();
         $notifications = Notification::all();
@@ -75,11 +106,14 @@ class HomeController extends Controller
         $forViewAuthUserContractImagesArray = [];
 
 
-
-        if (Auth::user()->drive_links == null){
+        $AuthDriveLink = Auth::user()->drive_links;
+        if (Auth::user()->drive_links == null) {
             $AuthDrive = '';
         } else {
-            $AuthDrive = Auth::user()->drive_links->drive_link;
+            foreach ($AuthDriveLink as $link) {
+
+                $AuthDrive = $link->drive_link;
+            }
         }
 
 
@@ -108,7 +142,7 @@ class HomeController extends Controller
 
         }
 
-        return view('profile', ['userWithImages' => User::with('images')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers', 'AuthDrive'));
+        return view('profile', ['userWithImages' => User::with('images', 'drive_links')->paginate(15)], compact('authUserIdImages', 'userList', 'allImages', 'userWithImages', 'forViewAuthUserIdImagesArray', 'forViewAuthUserContractImagesArray', 'forViewAuthUserInsurance_docImagesArray', 'authUserProfileImages', 'usersWithNotification', 'notifications', 'notifiesWithUsers', 'AuthDrive'));
     }
 
     public function settings()
@@ -128,6 +162,21 @@ class HomeController extends Controller
 
     public function editDays(Request $request)
     {
+
+        if (request('badgeOfMonth')) {
+            $users = User::all();
+            foreach ($users as $one) {
+                $one->badge = 0;
+                $one->save();
+            }
+
+            $id = request('badgeOfMonth');
+            $findUser = User::find($id);
+            $findUser->badge = 1;
+            $findUser->save();
+
+            return back();
+        }
 
         if (request('vocationDays')) {
             $newVocationDays = request('vocationDays');
@@ -150,19 +199,6 @@ class HomeController extends Controller
 
         }
 
-        if (request('badgeOfMonth')) {
-
-            $users = User::all();
-            foreach ($users as $one) {
-                $one->badge = 0;
-                $one->save();
-            }
-            $id = request('badgeOfMonth');
-            $findUser = User::find($id);
-            $findUser->badge = 1;
-            $findUser->save();
-            return back();
-        }
 
     }
 
@@ -194,7 +230,7 @@ class HomeController extends Controller
             $authUserProfilePicture->save();
         }
 
-        $userWithImages = User::with('images')->get();
+        $userWithImages = User::with('images', 'drive_links')->get();
         $userImages = image::all()->where('user_id', 'id')->pluck('picture_name');
 
 

@@ -21,6 +21,7 @@ class NotificationController extends Controller
         $notifiesWithUsers = Notification::with('users')->get();
         $notifications = Notification::all();
 
+
         foreach ($notifications as $one){
             $one->status = 1;
             $one->save();

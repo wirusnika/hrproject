@@ -1,4 +1,146 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto);@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext);@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-UltraItalic.woff2?6bc3d9c3ee9bf81c78a7e5df06afee69) format('woff2'),
+    url(/fonts/Gotham-UltraItalic.woff?999ee5126e1889a747ddc470f87a4722) format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Light.woff2?1cfe900f0192950baa31a156eb4cfa89) format('woff2'),
+    url(/fonts/Gotham-Light.woff?a9f2778963187fa5d971dfe1e6b1865d) format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Light.woff2?1cfe900f0192950baa31a156eb4cfa89) format('woff2'),
+    url(/fonts/Gotham-Light.woff?a9f2778963187fa5d971dfe1e6b1865d) format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-XLight.woff2?35018842ccbe3c2edd59592f0176878f) format('woff2'),
+    url(/fonts/Gotham-XLight.woff?abf210544eea03f78401b6f36e928720) format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Bold.woff2?cabb3cb5221534904b3dce22929a4733) format('woff2'),
+    url(/fonts/Gotham-Bold.woff?8fcb256bb90356e66c466a7ecd61009a) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Medium.woff2?f7b033f47ab0f822307f1584101a84f0) format('woff2'),
+    url(/fonts/Gotham-Medium.woff?284e1a7d4c09419edbef2a8fa5e06f12) format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-LightItalic.woff2?d74df846bf114b114467e3fd6ab0924a) format('woff2'),
+    url(/fonts/Gotham-LightItalic.woff?83a23795adf240d21f40867c3d9365f9) format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-ThinItalic.woff2?95d6a8e504b59e23146e79451e63cd20) format('woff2'),
+    url(/fonts/Gotham-ThinItalic.woff?8db3f55f89adec595675fa20883a2a1a) format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Medium.woff2?f7b033f47ab0f822307f1584101a84f0) format('woff2'),
+    url(/fonts/Gotham-Medium.woff?284e1a7d4c09419edbef2a8fa5e06f12) format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-MediumItalic.woff2?d5f40db2dfb57a56e66e475091aab67d) format('woff2'),
+    url(/fonts/Gotham-MediumItalic.woff?c21bb9fedcf13612497a844ab90069cc) format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-BoldItalic.woff2?d8e4e56281dabd6ce62ba42a492dde6d) format('woff2'),
+    url(/fonts/Gotham-BoldItalic.woff?84d27051b64b2acac658a8521d8c2168) format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Book.woff2?87f5e0b6e30ec6242afa7c798961415f) format('woff2'),
+    url(/fonts/Gotham-Book.woff?4cc6edc92f0acce7cadc06924b9f5425) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-XLightItalic.woff2?5f904413e9e0ba29cf2eb46e2ea0feda) format('woff2'),
+    url(/fonts/Gotham-XLightItalic.woff?d4a1737fce5c40d699463f4156c43045) format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-BookItalic.woff2?5e2cdc7186e9a6633f5da022edc46594) format('woff2'),
+    url(/fonts/Gotham-BookItalic.woff?7761cf694f08217c057586ddf52fd4a3) format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Thin.woff2?5f802a18a35bd91f469cfc127837bd52) format('woff2'),
+    url(/fonts/Gotham-Thin.woff?7ebe8c84a288522e9b6a9a33ff905a9e) format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Bold.woff2?cabb3cb5221534904b3dce22929a4733) format('woff2'),
+    url(/fonts/Gotham-Bold.woff?8fcb256bb90356e66c466a7ecd61009a) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-Black.woff2?f81ba9f69ae9f8cde5c1015a69956faa) format('woff2'),
+    url(/fonts/Gotham-Black.woff?ba93239cfae6d2617f82f75e91add702) format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(/fonts/Gotham-BookItalic.woff2?5e2cdc7186e9a6633f5da022edc46594) format('woff2'),
+    url(/fonts/Gotham-BookItalic.woff?7761cf694f08217c057586ddf52fd4a3) format('woff');
+    font-weight: 500;
+    font-style: italic;
+}@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -11100,6 +11242,12 @@ a.text-dark:focus {
   }
 }
 
+textarea:focus,
+input:focus,
+button:focus {
+  outline: none;
+}
+
 .inputs {
   text-align: -webkit-center;
   border: 1px solid #d5d5d5;
@@ -11112,7 +11260,7 @@ a.text-dark:focus {
 }
 
 .inputs a {
-  font-family: sans-serif;
+  font-family: Gotham;
 }
 
 .login {
@@ -11126,7 +11274,7 @@ a.text-dark:focus {
 }
 
 .login a {
-  font-family: sans-serif;
+  font-family: Gotham;
 }
 
 .login .login-inputs {
@@ -11162,13 +11310,13 @@ a.text-dark:focus {
 }
 
 .form-control {
-  font-family: sans-serif;
+  font-family: Gotham;
   opacity: 0.6;
 }
 
 .input-group {
   width: 80%;
-  font-family: Roboto sans-serif;
+  font-family: Gotham;
   background: #FFFFFF;
   border: 1px solid #FF8055;
   box-sizing: border-box;
@@ -11185,6 +11333,7 @@ a.text-dark:focus {
   font-size: 40px;
   line-height: 38px;
   color: #6C757D;
+  font-family: Gotham;
 }
 
 .employees-notification h3 {
@@ -11242,10 +11391,26 @@ a.text-dark:focus {
   color: #000000;
 }
 
+.notification-message p {
+  font-family: Gotham;
+  font-size: 16px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.notification-message .messages {
+  height: 165px;
+  top: 146px;
+  background: #F2F8FD;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
 .profile h1 {
   font-size: 33px;
   margin-top: 10px;
-  font-family: monospace;
+  font-family: Gotham;
 }
 
 .profile .profile-picture img {
@@ -11274,6 +11439,7 @@ a.text-dark:focus {
   font-size: 20px;
   line-height: 19px;
   color: #000;
+  font-weight: bold;
 }
 
 .profile .drive-button {
@@ -11300,6 +11466,11 @@ a.text-dark:focus {
   font-size: 16px;
   line-height: 30px;
   color: #6C757D;
+}
+
+.profile .logo-for-employees img {
+  max-width: 65%;
+  float: right;
 }
 
 .profile .days-info {
@@ -11339,12 +11510,105 @@ a.text-dark:focus {
 }
 
 .profile .profile-logo p {
-  font-family: Roboto;
+  font-family: Gotham;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
   color: #000000;
+}
+
+.profile .modal-dialog {
+  width: 515px;
+  height: 590px;
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.profile .modal-dialog .modal-content {
+  width: 515px;
+  height: 627px;
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.profile .modal-dialog .modal-content .modal-body {
+  padding: 3rem;
+}
+
+.profile .modal-dialog .modal-content .modal-body h3 {
+  font-family: Gotham;
+  font-size: 35px;
+  line-height: 33px;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-info {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 16px;
+  width: 425px;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-info a {
+  font-family: Gotham;
+  font-size: 17px;
+  line-height: 17px;
+  color: #6C757D;
+  display: -webkit-box;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-info a p {
+  color: #000000;
+  padding-left: 11px;
+  font-weight: bold;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-days a {
+  font-family: Gotham;
+  font-size: 15px;
+  line-height: 15px;
+  color: #000000;
+  display: -webkit-box;
+  font-weight: bold;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-days input {
+  width: 87px;
+  height: 33px;
+  background: #FFFFFF;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  padding: 4px;
+  color: #000000;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-days button {
+  width: 246px;
+  height: 32px;
+  background: #FFFFFF;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-days img {
+  max-width: 65%;
+  float: right;
+}
+
+.profile .modal-dialog .modal-content .modal-body .pop-days .save-changes {
+  width: 246px;
+  height: 32px;
+  background: #FF8055;
+  border-radius: 10px;
+  color: #fff;
 }
 
 #cal {
@@ -11566,7 +11830,7 @@ a.text-dark:focus {
 .settings h2 {
   font-size: 33px;
   margin-top: 60px;
-  font-family: monospace;
+  font-family: Gotham;
 }
 
 .settings .setting-picture img {
@@ -11595,7 +11859,7 @@ a.text-dark:focus {
 .settings .btn-outline-secondary {
   font-weight: bold;
   width: 33%;
-  font-family: sans-serif;
+  font-family: Gotham;
 }
 
 .settings .-image img {
@@ -11618,7 +11882,7 @@ a.text-dark:focus {
 }
 
 .settings .setting-logo p {
-  font-family: Roboto;
+  font-family: Gotham;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -11636,6 +11900,7 @@ a.text-dark:focus {
   font-size: 40px;
   line-height: 38px;
   color: #6C757D;
+  font-family: Gotham;
 }
 
 .news .news-header-image .clouds .news-post {
@@ -11649,7 +11914,7 @@ a.text-dark:focus {
 }
 
 .news p {
-  font-family: roboto sans-serif;
+  font-family: Gotham;
 }
 
 .news .news-title {
@@ -11658,9 +11923,10 @@ a.text-dark:focus {
 }
 
 .news .news-title h2 {
-  font-size: 39px;
+  font-size: 38px;
   line-height: 38px;
   color: #6C757D;
+  font-family: Gotham;
 }
 
 .news .news-text {
@@ -11691,6 +11957,7 @@ a.text-dark:focus {
   font-size: 40px;
   line-height: 38px;
   color: #6C757D;
+  font-family: Gotham;
 }
 
 .news-create-post h3 {
@@ -11920,6 +12187,29 @@ a.text-dark:focus {
   transition: 0.64s ease-in-out;
 }
 
+.popup-inner .pop-info {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 16px;
+  width: 416px;
+}
+
+.popup-inner .pop-info a {
+  font-family: Gotham;
+  font-size: 17px;
+  line-height: 16px;
+  color: #6C757D;
+  display: -webkit-box;
+}
+
+.popup-inner .pop-info a p {
+  color: #000000;
+  padding-left: 11px;
+  font-weight: bold;
+}
+
 .popup__photo {
   display: -webkit-box;
   display: flex;
@@ -11933,13 +12223,6 @@ a.text-dark:focus {
   position: fixed;
   top: -50px;
   left: -40px;
-}
-
-.popup__photo img {
-  max-width: 160px;
-  /*max-height: 300px;*/
-  max-width: 160px;
-  /*max-height: 300px;*/
 }
 
 .col-md-12-mine {
@@ -11976,7 +12259,7 @@ a.text-dark:focus {
   font-family: Gotham;
   font-size: 35px;
   line-height: 33px;
-  color: #6C757D;
+  color: #000000;
 }
 
 .popup__text p {
@@ -12041,6 +12324,7 @@ a.text-dark:focus {
   font-size: 40px;
   line-height: 38px;
   color: #6C757D;
+  font-family: Gotham;
 }
 
 .calendar-create-event h3 {
@@ -12160,7 +12444,7 @@ body .fc {
   height: 1em;
   line-height: 1em;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
+  font-family: Gotham;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -12729,11 +13013,13 @@ a.fc-more:hover {
 }
 
 .fc-toolbar h2 {
-  margin: 0;
+  padding-left: 20px;
+  color: #FF8055;
 }
 
 .fc-toolbar button {
   position: relative;
+  color: #FF8055;
 }
 
 .fc-toolbar .fc-state-hover,
@@ -13032,7 +13318,7 @@ a.fc-more:hover {
   overflow: hidden;
   line-height: 8px;
   font-size: 11px;
-  font-family: monospace;
+  font-family: Gotham;
   text-align: center;
   cursor: s-resize;
 }

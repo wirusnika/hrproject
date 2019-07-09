@@ -29,6 +29,7 @@ class NewsController extends Controller
     public function index()
     {
         $usersWithNews = User::with('news')->get();
+
         $news = News::all();
         return view('news.index', compact('news', 'usersWithNews'));
     }
