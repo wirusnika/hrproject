@@ -16,9 +16,15 @@
                         </div>
                         <div class="row messages">
                             <div class="col-md-12">
-                                <h3 class="mt-3"> {{ $oneNotification->title }} </h3>
-                                <hr>
-                                <p>{{ $oneNotification->description }}</p>
+
+                                @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                                    <a href="{{ route('notifications.edit', $oneNotification->id) }}"><h2
+                                            class="font-weight-bold mt-3">{{ $oneNotification->title }} </h2></a>
+                                @else
+                                    <h3 class="mt-3"> {{ $oneNotification->title }} </h3>
+                                @endif
+                                    <hr>
+                                    <p>{{ $oneNotification->description }}</p>
                             </div>
                         </div>
                         @endforeach

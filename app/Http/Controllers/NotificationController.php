@@ -79,7 +79,9 @@ class NotificationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $oneNotification = Notification::find($id);
+
+        return view('notifications.edit', compact('oneNotification'));
     }
 
     /**
@@ -91,7 +93,13 @@ class NotificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $oneNotification = Notification::find($id);
+
+        $oneNotification->title = request('title');
+        $oneNotification->description = request('description');
+        $oneNotification->save();
+
+        return redirect('notifications');
     }
 
     /**
@@ -102,6 +110,8 @@ class NotificationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Notification::find($id)->delete();
+
+        return redirect('notifications');
     }
 }
