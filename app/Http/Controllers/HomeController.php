@@ -60,7 +60,7 @@ class HomeController extends Controller
     {
 
         $search = request('search');
-        $result = User::with('images')->where('name', 'LIKE', '%' . $search . '%')->orWhere('email', 'LIKE', '%' . $search . '%')->get();
+        $result = User::with('images','drive_links')->where('name', 'LIKE', '%' . $search . '%')->orWhere('email', 'LIKE', '%' . $search . '%')->get();
 
         return view('search', compact('result'));
     }

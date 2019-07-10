@@ -134,7 +134,7 @@
                                                                             @foreach($one->drive_links as $link)
 
                                                                                 <button
-                                                                                    onclick="window.open('{{ $link->drive_link }}')"
+                                                                             onclick="window.open('{{ $link->drive_link }}')"
                                                                                     class="mt-4" type="button">
                                                                                     Drive Document
                                                                                 </button>

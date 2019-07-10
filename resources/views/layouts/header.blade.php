@@ -5,7 +5,7 @@
 
 
     <!-- CSRF Token -->
-{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    {{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
     <title>{{ ('CZ HR') }}</title>
 
@@ -74,8 +74,8 @@
                 </ul>
 
                 @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
-                    <form class="form-inline my-2 my-lg-0"  method="get" action="{{route('search')}}">
-
+                    <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
+                        @csrf
                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
                                aria-label="Search">
                         <button class="btn text-white my-2 my-sm-0" style="background-color: #FF8055" type="submit">
@@ -93,7 +93,7 @@
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                           style="display: none;">
-                    @csrf
+                        @csrf
                     </form>
 
                 </button>

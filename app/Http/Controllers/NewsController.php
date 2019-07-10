@@ -119,11 +119,18 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $oneNews = News::find($id);
 
         $oneNews->title = request('title');
         $oneNews->description = request('description');
         $oneNews->save();
+
+        if (request('delete')){
+
+            $id = request('delete');
+            News::find($id)->delete();
+        }
 
         return redirect('news');
     }

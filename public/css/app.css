@@ -13473,3 +13473,96 @@ a.fc-more:hover {
   font-size: 50px;
 }
 
+.search .modal-dialog {
+  width: 515px;
+  height: 590px;
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.search .modal-dialog .modal-content {
+  width: 515px;
+  height: 627px;
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.search .modal-dialog .modal-content .modal-body {
+  padding: 3rem;
+}
+
+.search .modal-dialog .modal-content .modal-body h3 {
+  font-family: Gotham;
+  font-size: 35px;
+  line-height: 33px;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-info {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 16px;
+  width: 425px;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-info a {
+  font-family: Gotham;
+  font-size: 17px;
+  line-height: 17px;
+  color: #6C757D;
+  display: -webkit-box;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-info a p {
+  color: #000000;
+  padding-left: 11px;
+  font-weight: bold;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-days a {
+  font-family: Gotham;
+  font-size: 15px;
+  line-height: 15px;
+  color: #000000;
+  display: -webkit-box;
+  font-weight: bold;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-days input {
+  width: 87px;
+  height: 33px;
+  background: #FFFFFF;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  padding: 4px;
+  color: #000000;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-days button {
+  width: 246px;
+  height: 32px;
+  background: #FFFFFF;
+  border: 2px solid #FF8055;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-days img {
+  max-width: 65%;
+  float: right;
+}
+
+.search .modal-dialog .modal-content .modal-body .pop-days .save-changes {
+  width: 246px;
+  height: 32px;
+  background: #FF8055;
+  border-radius: 10px;
+  color: #fff;
+}
+

@@ -1510,7 +1510,8 @@ a[data-goto]:hover {
 
 .fc-scroller > .fc-day-grid, .fc-scroller > .fc-time-grid {
     position: relative;
-    width: 100%
+    width: 100%;
+
 }
 
 .fc-event {
@@ -1567,6 +1568,7 @@ a[data-goto]:hover {
     height: 40px;
     margin-left: -20px;
     margin-top: -20px
+
 }
 
 .fc-event.fc-selected {
@@ -1647,6 +1649,7 @@ a[data-goto]:hover {
 
 tr:first-child > td > .fc-day-grid-event {
     margin-top: 2px
+
 }
 
 .fc-day-grid-event.fc-selected:after {
@@ -1664,6 +1667,7 @@ tr:first-child > td > .fc-day-grid-event {
 .fc-day-grid-event .fc-content {
     white-space: nowrap;
     overflow: hidden
+
 }
 
 .fc-day-grid-event .fc-time {
@@ -1683,6 +1687,7 @@ a.fc-more {
     font-size: .85em;
     cursor: pointer;
     text-decoration: none
+
 }
 
 a.fc-more:hover {
@@ -1695,6 +1700,7 @@ a.fc-more:hover {
 
 .fc-day-grid .fc-row {
     z-index: 1
+
 }
 
 .fc-more-popover {
@@ -1835,7 +1841,7 @@ a.fc-more:hover {
     min-width: 1.5em;
     text-align: center;
     background-color: #f2f2f2;
-    color: grey
+    color: grey;
 }
 
 .fc-basic-view td.fc-week-number > * {
@@ -2197,7 +2203,91 @@ a.fc-more:hover {
     font-size: 50px;
 
 }
-
 ///*CALENDAR CSS ENDS*/
 
+.search{
+    .modal-dialog {
+        width: 515px;
+        height: 590px;
+        background: #FFFFFF;
+        border-radius: 15px;
+        .modal-content {
+            width: 515px;
+            height: 627px;
+            background: #FFFFFF;
+            border-radius: 15px;
+            .modal-body {
+                padding: 3rem;
+                h3 {
+                    font-family: Gotham;
+                    font-size: 35px;
+                    line-height: 33px;
+                    color: #000000;
+                    margin-bottom: 2rem;
+                }
+                .pop-info {
+                    background: rgba(255, 255, 255, 0.8);
+                    border: 2px solid #FF8055;
+                    box-sizing: border-box;
+                    border-radius: 20px;
+                    padding: 16px;
+                    width: 425px;
+                    a {
+                        font-family: Gotham;
+                        font-size: 17px;
+                        line-height: 17px;
+                        color: #6C757D;
+                        display: -webkit-box;
+                        p {
+                            color: #000000;
+                            padding-left: 11px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .pop-days {
+                    a {
+                        font-family: Gotham;
+                        font-size: 15px;
+                        line-height: 15px;
+                        color: #000000;
+                        display: -webkit-box;
+                        font-weight: bold;
+                    }
+                    input {
+                        width: 87px;
+                        height: 33px;
+                        background: #FFFFFF;
+                        border: 2px solid #FF8055;
+                        box-sizing: border-box;
+                        border-radius: 10px;
+                        text-align: center;
+                        padding: 4px;
+                        color: #000000;
+                    }
+                    button {
+                        width: 246px;
+                        height: 32px;
+                        background: #FFFFFF;
+                        border: 2px solid #FF8055;
+                        box-sizing: border-box;
+                        border-radius: 10px;
+                        font-weight: bold;
+                    }
+                    img {
+                        max-width: 65%;
+                        float: right;
+                    }
+                    .save-changes {
+                        width: 246px;
+                        height: 32px;
+                        background: #FF8055;
+                        border-radius: 10px;
+                        color: #fff;
+                    }
+                }
+            }
+        }
 
+    }
+}

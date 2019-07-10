@@ -28,77 +28,84 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<header class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                {{--                <li class="nav-item active">--}}
-                {{--                    <a class="nav-link" href="{{route("home")}}">Home <span class="sr-only">(current)</span></a>--}}
-                {{--                </li>--}}
-                <li class="nav-item">
-                    <a class="nav-link Profile" href="{{route("profile")}}">Profile</a>
-                </li>
+</head>
+@if(Auth::check())
+    <header class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <li class="nav-item">
-                    <a class="nav-link News" href="{{route("news.index")}}">News</a>
-                </li>
+                <ul class="navbar-nav mr-auto">
 
-                @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                     <li class="nav-item">
-                        <a class="nav-link Drive" href="{{route("drives.index")}}">Drive</a>
+                        <a class="nav-link text-white Profile" href="{{route("profile")}}">Profile</a>
                     </li>
 
-                @endif
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route("settings")}}">Settings</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route("tasks.index")}}">Calendar</a>
-                </li>
-
-                @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route("notifications.index")}}">Messages<span
-                                style="color: orange"><sup>
+                        <a class="nav-link text-white News" href="{{route("news.index")}}">News</a>
+                    </li>
+
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                        <li class="nav-item">
+                            <a class="nav-link text-white Drive" href="{{route("drives.index")}}">Drive</a>
+                        </li>
+
+                    @endif
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="{{route("settings")}}">Settings</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="{{route("tasks.index")}}">Calendar</a>
+                    </li>
+
+                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                        <li class="nav-item">
+                            <a class="nav-link text-white " href="{{route("notifications.index")}}">Messages<span
+
+                                    style="color: orange"><sup>
+
                                             {{ \App\Notification::where('status',0)->count() }}
                                     </sup></span></a>
-                    </li>
+                        </li>
 
+                    @endif
+
+                </ul>
+
+                @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
+                    <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
+                        @csrf
+                        <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
+                               aria-label="Search">
+                        <button class="btn text-white my-2 my-sm-0" style="background-color: #FF8055" type="submit">
+                            Search
+                        </button>
+
+                    </form>
                 @endif
-
-            </ul>
-
-
-            @if(\Illuminate\Support\Facades\Auth::user()->role == 'Manager')
-                <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
-
-                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-
-                </form>
-            @endif
-            <button style="margin: 0 10px 0 10px; " class="btn btn-outline-light my-2 my-sm-0 chemi-logout-btn">
-                <a class="logout_chemi" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
+                <button style="background-color: #FF8055" class="btn text-white my-2 m-2 my-sm-0 chemi-logout-btn">
+                    <a class="logout_chemi" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
+                        {{ __('Logout') }}
+                    </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                      style="display: none;">
-                    @csrf
-                </form>
-            </button>
-        </div>
-    </nav>
-</header>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                          style="display: none;">
+                        @csrf
+                    </form>
+
+                </button>
+                @endif
+            </div>
+        </nav>
+    </header>
 
 <form class="text-center" action="{{ route('tasks.index') }}" method="get">
     {{ csrf_field() }}
