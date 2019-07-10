@@ -13050,6 +13050,10 @@ a.fc-more:hover {
 .fc-view > table {
   position: relative;
   z-index: 1;
+  background-image: url(/img/iceberg-calendar.png);
+  background-repeat: no-repeat;
+  background-position: 80% 49%;
+  background-size: 29%;
 }
 
 .fc-basicDay-view .fc-content-skeleton,
@@ -13471,6 +13475,11 @@ a.fc-more:hover {
 
 .chemim {
   font-size: 50px;
+}
+
+.calendariceberg {
+  position: absolute;
+  top: 650px;
 }
 
 .search .modal-dialog {

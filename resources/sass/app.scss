@@ -1426,7 +1426,8 @@ hr.fc-divider {
     table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 1em
+    font-size: 1em;
+
 }
 
 .fc td, .fc th {
@@ -1457,7 +1458,7 @@ a[data-goto]:hover {
 }
 
 .fc-row:first-child table {
-    border-top: 0 hidden transparent
+    border-top: 0 hidden transparent;
 }
 
 .fc-row {
@@ -1788,7 +1789,11 @@ a.fc-more:hover {
 
 .fc-view, .fc-view > table {
     position: relative;
-    z-index: 1
+    z-index: 1;
+    background-image: url(/img/iceberg-calendar.png);
+    background-repeat: no-repeat;
+    background-position: 80% 49%;
+    background-size: 29%;
 }
 
 .fc-basicDay-view .fc-content-skeleton, .fc-basicWeek-view .fc-content-skeleton {
@@ -2203,6 +2208,13 @@ a.fc-more:hover {
     font-size: 50px;
 
 }
+
+.calendariceberg {
+    position: absolute;
+    top: 650px;
+
+}
+
 ///*CALENDAR CSS ENDS*/
 
 .search{

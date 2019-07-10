@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ ('Time Tracker') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
@@ -118,6 +118,7 @@
 
     <div id='calendar'></div>
 
+{{--    <img class="calendariceberg" src="img/calendariceberg.jpg">--}}
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
